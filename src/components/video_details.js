@@ -1,16 +1,27 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import Constants from '../utilclasses/constants'
 
 export default class VideoDetails extends Component {
 
 
     constructor(props) {
         super(props);
-
-        console.log(props);
+        this.state = {'data':''};
+        this.getVideoDetails(this.props.video.id.videoId);
+        console.log('called');
+    }
+    getVideoDetails(id){
+        let ROOT_URL = 'https://www.googleapis.com/youtube/v3/videos';
+        // console.log('key',Constants.API_)
+        axios.get(ROOT_URL, {params: {id,'part': 'snippet', 'key':Constants.getKey()}})
+        .then(({data}) => this.setState({data}));
     }
     render() {
+        // this.getVideoDetails(this.props.video.id.videoId);
         const { video } = this.props;
         const url = `https://www.youtube.com/embed/${video.id.videoId}`;
+        const videoDesc = this.state.data === '' ?video.snippet.description:this.state.data.items["0"].snippet.description;
         return (
             <div className='video-details'>
                 <div className='row'>
@@ -25,7 +36,7 @@ export default class VideoDetails extends Component {
                 </div>
                 <div className='row'>
                     <div className='col-12'>
-                        <p>{video.snippet.description}</p>
+                        <p>{videoDesc}</p>
                     </div>
                 </div>
             </div>
