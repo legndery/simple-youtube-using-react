@@ -2,31 +2,31 @@ import React, { Component } from 'react';
 
 export default class VideoDetails extends Component {
 
-    
-    constructor(props){
+
+    constructor(props) {
         super(props);
-        
+
         console.log(props);
     }
     render() {
-        const {video} = this.props;
-       const url = `https://www.youtube.com/embed/${video.id.videoId}`;
+        const { video } = this.props;
+        const url = `https://www.youtube.com/embed/${video.id.videoId}`;
         return (
             <div className='video-details'>
                 <div className='row'>
-                    <div className='col-12 embed-responsive embed-responsive-16by9'>
-                    <iframe className='embed-responsive-item' title={video.snippet.title} src={url} frameBorder="0" allowFullScreen></iframe>
-                </div>
-                </div>
-                <div className='row'>
-                    <div className='col-12'>
-                        {video.snippet.title}
-                </div>
+                    <div className='col-12 embed-responsive embed-responsive-16by9 youtube-iframe'>
+                        <iframe className='embed-responsive-item' title={video.snippet.title} src={url} frameBorder="0" allowFullScreen></iframe>
+                    </div>
                 </div>
                 <div className='row'>
                     <div className='col-12'>
-                        {video.snippet.description}
+                        <h2>{video.snippet.title}</h2>
+                    </div>
                 </div>
+                <div className='row'>
+                    <div className='col-12'>
+                        <p>{video.snippet.description}</p>
+                    </div>
                 </div>
             </div>
         );
