@@ -4,11 +4,19 @@ body {
 .App {
   /* text-align: center; */
 }
-
+.white-space-pre {
+  white-space: pre-wrap;
+}
 .App .img-thumbnail {
   margin-right: 10px;
 }
-.App-logo {
+.video-details .title {
+  /* border-bottom: 2px solid gray; */
+}
+.video-details .desc{
+  padding-top: 20px;
+}
+/* .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
@@ -25,4 +33,4 @@ body {
 }
 .App .youtube-iframe{
   margin-bottom: 25px;
-}
+} */
