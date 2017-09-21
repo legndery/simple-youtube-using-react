@@ -31,7 +31,7 @@ export default class VideoDetails extends Component {
         const url = `https://www.youtube.com/embed/${video.id.videoId}`;
         const videoDesc = typeof this.state.data === 'string' ?video.snippet.description:this.state.data.items["0"].snippet.description;
         return (
-            <div className='video-details'>
+            <div className='video-details affix'>
                 
                 <div className='row'>
                     <div className='col-12 title'>

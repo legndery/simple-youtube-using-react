@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import YTSearch from 'youtube-api-search'
+import YTSearch from './modules/youtube-search'
 import _ from 'underscore'
 import SearchBar from './components/search_bar'
 import VideoDetails from './components/video_details'
@@ -46,7 +46,6 @@ class App extends Component {
     return (
       <div className="App">
             <SearchBar OnSearchInputChange={videosearch} />
-            <hr />
       <div className='container'>
         <div className='row'>
           <div className='col-8'>
